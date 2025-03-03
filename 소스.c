@@ -60,7 +60,7 @@ int POSSEL(int* arr)
 int CMPRESULT(int* str1, int* str2)
 {
 	int i, j;
-	int strike=0, ball=0, static count = 0;
+	int strike=0, ball=0, static count = 0; // CMPRESULT 함수가 main 함수내의 무한루프에서 계속 호출되므로 count 값을 static 처리함으로서 계속해서 증가할 수 있도록 해야한다.  
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
