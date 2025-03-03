@@ -1,20 +1,20 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
-void CMPSEL(int* arr); // ÄÄÇ»ÅÍ°¡ ·£´ıÇÑ 3°³ÀÇ ¼­·Î ´Ù¸¥ ¼ıÀÚ¸¦ ¹è¿­¿¡ ÀúÀå
-void USERSEL(int* arr); // »ç¿ëÀÚ°¡ 3°³ÀÇ ¼­·Î ´Ù¸¥ ¼ıÀÚ¸¦ ÀúÀå
-int CMPRESULT(int* str1, int* str2); // µÎ °³ÀÇ ¹è¿­¿¡ ÀúÀåµÈ ¼ıÀÚ¸¦ ºñ±³ÇÏ´Â ÇÔ¼ö
-int POSSEL(int* arr); // »ç¿ëÀÚ°¡ ÀúÀåÇÑ 3°³ÀÇ ¼­·Î ´Ù¸¥ ¼ıÀÚ°¡ ¿Ã¹Ù¸¥Áö ÆÇ´Ü
+void CMPSEL(int* arr); // ì»´í“¨í„°ê°€ ëœë¤í•œ 3ê°œì˜ ì„œë¡œ ë‹¤ë¥¸ ìˆ«ìë¥¼ ë°°ì—´ì— ì €ì¥
+void USERSEL(int* arr); // ì‚¬ìš©ìê°€ 3ê°œì˜ ì„œë¡œ ë‹¤ë¥¸ ìˆ«ìë¥¼ ì €ì¥
+int CMPRESULT(int* str1, int* str2); // ë‘ ê°œì˜ ë°°ì—´ì— ì €ì¥ëœ ìˆ«ìë¥¼ ë¹„êµí•˜ëŠ” í•¨ìˆ˜
+int POSSEL(int* arr); // ì‚¬ìš©ìê°€ ì €ì¥í•œ 3ê°œì˜ ì„œë¡œ ë‹¤ë¥¸ ìˆ«ìê°€ ì˜¬ë°”ë¥¸ì§€ íŒë‹¨
 int main(void)
 {
 	int cmpstr[3];
 	int userstr[3];
 	int result;
 	printf("Start Game!\n");
-	CMPSEL(cmpstr);  // ÄÄÇ»ÅÍ°¡ 3°³ÀÇ ¼­·Î ´Ù¸¥ ³­¼ö »ı¼º
+	CMPSEL(cmpstr);  // ì»´í“¨í„°ê°€ 3ê°œì˜ ì„œë¡œ ë‹¤ë¥¸ ë‚œìˆ˜ ìƒì„±
 	while (1)
 	{
-		USERSEL(userstr); // »ç¿ëÀÚ°¡ 3°³ÀÇ ¼­·Î ´Ù¸¥ ³­¼ö »ı¼º
-		result = CMPRESULT(cmpstr, userstr); // µÎ °³ÀÇ ¹è¿­¿¡ ÀúÀåµÈ ¼ıÀÚ¸¦ ºñ±³
+		USERSEL(userstr); // ì‚¬ìš©ìê°€ 3ê°œì˜ ì„œë¡œ ë‹¤ë¥¸ ë‚œìˆ˜ ìƒì„±
+		result = CMPRESULT(cmpstr, userstr); // ë‘ ê°œì˜ ë°°ì—´ì— ì €ì¥ëœ ìˆ«ìë¥¼ ë¹„êµ
 		if (result == 1)
 			break;
 		printf("\n");
@@ -28,24 +28,24 @@ void CMPSEL(int* arr)
 	do
 	{
 		arr[1] = rand() % 10;
-	} while (arr[0] == arr[1]); // ¼­·Î ´Ù¸¥ ³­¼ö¸¦ »ı¼ºÇÏ±â À§ÇÑ Á¶°Ç
+	} while (arr[0] == arr[1]); // ì„œë¡œ ë‹¤ë¥¸ ë‚œìˆ˜ë¥¼ ìƒì„±í•˜ê¸° ìœ„í•œ ì¡°ê±´
 	do
 	{
 		arr[2] = rand() % 10;
-	} while (arr[2] == arr[0] || arr[2] == arr[1]); // ¼­·Î ´Ù¸¥ ³­¼ö¸¦ »ı¼ºÇÏ±â À§ÇÑ Á¶°Ç
+	} while (arr[2] == arr[0] || arr[2] == arr[1]); // ì„œë¡œ ë‹¤ë¥¸ ë‚œìˆ˜ë¥¼ ìƒì„±í•˜ê¸° ìœ„í•œ ì¡°ê±´
 }
 void USERSEL(int* arr)
 {
 	int i;
-	printf("3°³ÀÇ ¼ıÀÚ ¼±ÅÃ: ");
+	printf("3ê°œì˜ ìˆ«ì ì„ íƒ: ");
 	while (1)
 	{
 		scanf("%d %d %d", &arr[0], &arr[1], &arr[2]);
-		i = POSSEL(arr); // »ç¿ëÀÚ°¡ ¼­·Î ´Ù¸¥ ÀÚ¿¬¼ö¸¦ ÀÔ·ÂÇÏ¿´´ÂÁö È®ÀÎÇÏ±â À§ÇÑ ´Ü°è 
+		i = POSSEL(arr); // ì‚¬ìš©ìê°€ ì„œë¡œ ë‹¤ë¥¸ ìì—°ìˆ˜ë¥¼ ì…ë ¥í•˜ì˜€ëŠ”ì§€ í™•ì¸í•˜ê¸° ìœ„í•œ ë‹¨ê³„ 
 		if (i == 1)
 			break;
 		else
-			printf("Àß¸øµÈ ¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¿´½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä\n");
+			printf("ì˜ëª»ëœ ìˆ«ìë¥¼ ì…ë ¥í•˜ì˜€ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”\n");
 	}
 	return 0;
 }
@@ -60,22 +60,22 @@ int POSSEL(int* arr)
 int CMPRESULT(int* str1, int* str2)
 {
 	int i, j;
-	int strike=0, ball=0, count = 0;
+	int strike=0, ball=0, static count = 0;
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
 		{
 			if (str1[i] == str2[j])
 			{
-				i == j ? strike++ : ball++;  // strike ¿Í ballÀ» ÆÇ´Ü
+				i == j ? strike++ : ball++;  // strike ì™€ ballì„ íŒë‹¨
 				break;
 			}
 		}
 	}
 	count++;
-	printf("%d¹øÂ° µµÀü °á°ú: %dstrike, %dball!!\n", count, strike, ball);
+	printf("%dë²ˆì§¸ ë„ì „ ê²°ê³¼: %dstrike, %dball!!\n", count, strike, ball);
 	if (strike == 3)
-		return 1; // strike°¡ 3ÀÏ °æ¿ì 1À» ¹İÈ¯ÇØ main ÇÔ¼öÀÇ ¹«ÇÑ ·çÇÁ¸¦ Áß´Ü½ÃÅ²´Ù. 
+		return 1; // strikeê°€ 3ì¼ ê²½ìš° 1ì„ ë°˜í™˜í•´ main í•¨ìˆ˜ì˜ ë¬´í•œ ë£¨í”„ë¥¼ ì¤‘ë‹¨ì‹œí‚¨ë‹¤. 
 	else
 		return 0;
 }
